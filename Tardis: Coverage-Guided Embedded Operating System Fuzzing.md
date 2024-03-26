@@ -55,7 +55,7 @@ https://ieeexplore.ieee.org/document/9921188
 callback for initialzation是为用户态程序设计的，对于Embedded OS来说存在效率不高的问题（什么意思？）所以需要动态初始化机制，以及更加高效的覆盖率反馈机制（什么意思？）
 As a consequence, the existing mechanism for coverage collection initialization provided by Clang compiler may not get invoked during the target kernel booting phase。虽然不懂为什么，但是现有的coverage collection initialization可能并不能在内核中有用。
 解决方法是，将两个callback function在编译内核的时候插入到每一个基本块中（什么？）
-提出了一个a dynamic initialization mechanism去解决coverage collection initialization的问题（但是这两个词是什么意思？）
+提出了一个a dynamic initialization mechanism去解决coverage collection initialization的问题
 
 
 总之大概意思是，现有的用于用户态程序的coverage collection initialization技术，并不能直接地用于embedded OS中。因为xxxx（一个我没看明白的原因）
