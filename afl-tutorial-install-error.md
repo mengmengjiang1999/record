@@ -63,5 +63,5 @@ Successfully installed unicorn-2.0.1.post1 unicornafl-2.1.0
 [+] All set, you can now use Unicorn mode (-U) in afl-fuzz!
 ```
 
-总之最后./afl-fuzz -h之后可以输出预期结果了
+总之最后./afl-fuzz -h之后可以输出预期结果了（虽然看起来还有别的错没解决，但是先这样吧）
 
