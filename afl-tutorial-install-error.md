@@ -65,3 +65,70 @@ Successfully installed unicorn-2.0.1.post1 unicornafl-2.1.0
 
 总之最后./afl-fuzz -h之后可以输出预期结果了（虽然看起来还有别的错没解决，但是先这样吧）
 
+
+
+# Fuzzer setup
+
+到cargo build那一步会报错
+
+```
+   Compiling libafl v0.10.1
+error[E0432]: unresolved import `core::simd::SimdOrd`
+ --> /home/mmj/.cargo/registry/src/index.crates.io-6f17d22bba15001f/libafl-0.10.1/src/feedbacks/map.rs:8:5
+  |
+8 | use core::simd::SimdOrd;
+  |     ^^^^^^^^^^^^^^^^^^^ no `SimdOrd` in `simd`
+  |
+help: consider importing one of these items instead
+  |
+8 | use core::simd::prelude::SimdOrd;
+  |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8 | use crate::prelude::std::simd::prelude::SimdOrd;
+  |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8 | use std::simd::prelude::SimdOrd;
+```
+类似这种的一系列错。这种情况不用看报错信息，只要把
+
+> exercise-1/Cargo.toml
+
+里面改成
+
+```
+[package]
+name = "exercise-one-solution"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+libafl = "0.11.2"
+```
+
+就可以了。
+
+
+2. 不对好像还是哪里不太可以。不知道为什么
+
+首先第一个问题，既然cargo build和直接执行那几个命令的效果一样，为啥不直接执行那几个命令（虽然我试了一下并不能这么做）然后第二个问题，cargo build之后并没有出现xpdf/install文件夹，这又是为什么？
+
+
+我知道了。需要先查看xpdf的INSTALL文档
+
+cargo build和实际执行下面这几个命令的效果是一样的：
+
+```
+cd fuzzing-101-solutions/exercise-1/xpdf
+make clean
+rm -rf install 
+export LLVM_CONFIG=llvm-config-15
+CC=afl-clang-fast CXX=afl-clang-fast++ ./configure --prefix=./install
+make
+make install
+```
+（虽然还是不太明白为什么需要cargo build）但是当我们查看xpdf的INSTALL文档我们会发现，在执行make命令之前需要先执行一下：
+
+./configure
+
+此外，xpdf还需要安装至少一个依赖就是Freetype2。先装着。
+
+（理论上来说这样就可以的。打算先看survey了因为这个居然长达33页）
