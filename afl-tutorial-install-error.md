@@ -149,10 +149,11 @@ cd fuzzing-101-solutions/exercise-1/xpdf
 make clean
 rm -rf install 
 export LLVM_CONFIG=llvm-config-15
-CC=afl-clang-fast CXX=afl-clang-fast++
-./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
+CC=/home/mmj/Project/AFLplusplus/afl-clang-fast CXX=/home/mmj/Project/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
 make
 make install
 ```
+
+注意：因为在安装afl的时候并没有把afl-clang-fast之类的加入环境变量，所以这里指定编译器这些的时候需要手动设置成绝对路径。同理configure --prefix也需要设置成绝对路径
 
 这样做完之后，install文件夹就符合预期了。不过不知道为什么中途会报很多很多很多个warning。
