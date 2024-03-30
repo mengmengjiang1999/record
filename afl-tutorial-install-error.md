@@ -129,6 +129,6 @@ make install
 
 ./configure
 
-此外，xpdf还需要安装至少一个依赖就是Freetype2。先装着。
+此外，xpdf还需要安装至少一个依赖就是Freetype2。先装着(这个安装需要手动进行)
 
 （理论上来说这样就可以的。打算先看survey了因为这个居然长达33页）
