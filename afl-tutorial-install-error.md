@@ -129,6 +129,30 @@ make install
 
 ./configure
 
-此外，xpdf还需要安装至少一个依赖就是Freetype2。先装着(这个安装需要手动进行)
+此外，xpdf还需要安装至少一个依赖就是Freetype2。
 
-（理论上来说这样就可以的。打算先看survey了因为这个居然长达33页）
+
+3. 放弃cargo build
+还是不太懂为什么需要这个cargo build。总之，决定放弃，并直接通过命令行来进行install
+
+这一步说白了就是希望在xpdf/install目录下面安装这个有bug的xpdf版本。照着tutorial的命令行来走就可以。
+
+不过在最后一步install的时候会报这个错：
+configure: error: expected an absolute directory name for --prefix: ./install
+
+这种时候只需要把--prefix:后面的路径换成绝对路径就好。
+
+综上，方法是不用再管那个cargo build了，直接在命令行里输入：
+
+```
+cd fuzzing-101-solutions/exercise-1/xpdf
+make clean
+rm -rf install 
+export LLVM_CONFIG=llvm-config-15
+CC=afl-clang-fast CXX=afl-clang-fast++
+./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
+make
+make install
+```
+
+这样做完之后，install文件夹就符合预期了。不过不知道为什么中途会报很多很多很多个warning。
