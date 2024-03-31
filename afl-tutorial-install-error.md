@@ -132,7 +132,7 @@ make install
 此外，xpdf还需要安装至少一个依赖就是Freetype2。
 
 
-3. 放弃cargo build
+3. 关于cargo build
 还是不太懂为什么需要这个cargo build。总之，决定放弃，并直接通过命令行来进行install
 
 这一步说白了就是希望在xpdf/install目录下面安装这个有bug的xpdf版本。照着tutorial的命令行来走就可以。
@@ -157,3 +157,59 @@ make install
 注意：因为在安装afl的时候并没有把afl-clang-fast之类的加入环境变量，所以这里指定编译器这些的时候需要手动设置成绝对路径。同理configure --prefix也需要设置成绝对路径
 
 这样做完之后，install文件夹就符合预期了。不过不知道为什么中途会报很多很多很多个warning。
+
+
+不过warning好像并不影响。另外先通过命令行的方式跑通一次之后，cargo build就是管用的了（好神奇qwq）
+
+
+4. 关于RUNNING THE FUZZER这一步中BUILD THE FUZZER会报的错
+
+cargo build --release
+
+```
+error[E0432]: unresolved import `libafl::bolts::rands`
+ --> exercise-1/src/main.rs:1:20
+  |
+1 | use libafl::bolts::rands::StdRand;
+  |                    ^^^^^ could not find `rands` in `bolts`
+
+error[E0432]: unresolved import `libafl::bolts::shmem`
+ --> exercise-1/src/main.rs:2:20
+  |
+2 | use libafl::bolts::shmem::{ShMem, ShMemProvider, StdShMemProvider};
+  |                    ^^^^^ could not find `shmem` in `bolts`
+
+error[E0432]: unresolved import `libafl::bolts::tuples`
+ --> exercise-1/src/main.rs:3:20
+  |
+3 | use libafl::bolts::tuples::tuple_list;
+  |                    ^^^^^^ could not find `tuples` in `bolts`
+
+error[E0432]: unresolved imports `libafl::bolts::current_nanos`, `libafl::bolts::AsMutSlice`
+ --> exercise-1/src/main.rs:4:21
+  |
+4 | use libafl::bolts::{current_nanos, AsMutSlice};
+  |                     ^^^^^^^^^^^^^  ^^^^^^^^^^ no `AsMutSlice` in `bolts`
+  |                     |
+  |                     no `current_nanos` in `bolts`
+
+```
+
+这种情况是因为libafl这个包进行了一定的版本更新，需要修改cargo.toml为：
+
+- libafl为最新版本
+- 增加一个libafr_bolts
+
+```
+[package]
+name = "exercise-one-solution"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+libafl = "0.11.2"
+libafl_bolts ="0.11.2"
+```
+
+然后应该就可以了。
