@@ -65,7 +65,7 @@ The test cases are sent to a test case executor that always starts in a clean-sl
 Hydra also performs syscall sequence minimization to create a simplified test case for the ease of analyzing and fixing the bug (Section 3.6).
 
 
-### input mutator
+### 3.2 input mutator
 
 The input space of a file system consists of two major components: a file system image to mount, and file operations that access, read from, and write to the mounted image.
 
@@ -74,3 +74,41 @@ The input space of a file system consists of two major components: a file system
 完全随机的方式不够高效。考虑到一个文件系统绝大多数是实际存储的数据，只有1%左右的数据是metadata。对于实际存储的数据来说，少量的偏移和损坏并不会造成很大的影响（而且相关技术有很多），再加上大多数文件操作实际上都是在修改metadata，因此hydra确定的策略是对metadata进行修改来生成新的输入。
 具体做法是，先把整个image map到内存里，然后找到metadata所在的位置。
 找到位置之后，it applies several common mutation strategies [64] (bit flipping, arithmetic operation on random bytes, etc.) to randomly mutate the bytes of the metadata as described in Figure 8.
+After mutating the entire metadata blob, Hydra reassembles each metadata block back to its corresponding position inside the memory buffer, which stores the original full-size image. As a result, Hydra obtains a corrupt disk image that partially reflects the consequences of various diskfailure scenarios。这个时候我们很自然就会想到，这一点真的成立吗？具体而言，对于任意一个磁盘状态，真的一定能找到对应的磁盘操作使得磁盘从空的状态变成这个状态吗？——checksum这一段没太看明白具体怎么做到的，但是回答的就是这个问题。作者认为在加入这个机制之后，可以保证在大部分情况下，虽然image是坏掉的，但是的确可以通过某种操作序列得到此状态，也就是可达的。
+
+
+关于Syscall mutation：
+Similar to existing OS fuzzers [20, 26], Hydra mutates syscall sequences in two ways: (1) argument mutation (randomly selecting one of the existing syscalls in the sequence and mutating its argument(s)) and (2) syscall generation (appending a new randomly chosen syscall to the end of the sequence) (Figure 10).
+具体而言手工定义了一些规则（回忆一下之前还看过一些自动生成系统调用描述来加速fuzz，To generate mostly valid syscalls that explore deep into file system logic, instead of being early rejected by an error checking routine。或许两者可以结合一下）这里显然是通过手工方式增加的一些约束，有用肯定是有用的，具体多大用不清楚
+
+Exploiting the synergy.
+按照特定顺序去调度image和syscall的变异，有一些好处（据说）
+
+Assisting bug checkers（没看懂）
+
+
+### 3.3 Test Case Executor
+
+executor：the generated test cases are concretely executed on the targeted file system. 
+In general, the executor serves as (1) a fuzzing target, which mounts the given image and executes the syscall trace while collecting code coverage, and (2) a bridge to the checker dispatcher (Section 3.4), which calls a checker, collects results, and then provides an additional dimension of feedbacks to the feedback engine (Section 3.5). 
+
+Hydra supports both inkernel file systems (e.g., ext4), and FUSE (Filesystem in Userspace) file systems (e.g., FSCQ) for performance.
+
+因为基于Lib-OS的 executor可以以很快的方式forks a fresh instance of the executor for every test case
+
+基于FUSE的executor，因为我们实际上可以把FUSE看成一个用户态进程，所以它同样可以以比较低的代价跑很多个test case，方便fuzz
+
+
+（注意：fuzz必须考虑性能问题，因为需要起很多个instance）
+
+
+
+### 3.4 Checker Dispatcher
+
+checker despathcer是什么：
+
+
+
+（一些评论）
+fuzz需要对被测试的系统有足够多的了解才能做，而且这个具体的方法会根据被测试系统的不同而有很大的不同。
+不过尽管如此，fuzz方法层面还是有一些共同的地方。
