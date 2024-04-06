@@ -5,17 +5,17 @@ content
 
 #### 2024spring
 
-[week1](./2024spring/week1.md)
+[week1 20240226-20240303](./2024spring/week1-20240226-20240303.md)
 
-[week2](./2024spring/week2.md)
+[week2 20240304-20240310](./2024spring/week2-20240304-20240310.md)
 
-[week3](./2024spring/week3.md)
+[week3 20240311-20240317](./2024spring/week3-20240311-20240317.md)
 
-[week4](./2024spring/week4.md)
+[week4 20240318-20240324](./2024spring/week4-20240318-20240324.md)
 
-[week5](./2024spring/week5.md)
+[week5 20240325-2024033](./2024spring/week5-20240325-20240331.md)
 
-[week6](./2024spring/week6.md)
+[week6 20240401-20240407](./2024spring/week6-20240401-20240407.md)
 
 #### papers
 
