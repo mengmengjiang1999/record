@@ -19,6 +19,13 @@ content
 
 #### papers
 
+[KernelGPT: Enhanced Kernel Fuzzing via Large Language Models](./papers/KernelGPT:%20Enhanced%20Kernel%20Fuzzing%20via%20Large%20Language%20Models.md)
+
+[Tardis: Coverage-Guided Embedded Operating System Fuzzing](./papers/Tardis:%20Coverage-Guided%20Embedded%20Operating%20System%20Fuzzing.md)
+
+[Fuzzing of Embedded Systems: A Survey](./papers/Fuzzing%20of%20Embedded%20Systems:%20A%20Survey.md)
+
+[Hydra: Finding Bugs in File Systems with an Extensible Fuzzing Framework](./papers/Hydra:%20Finding%20Bugs%20in%20File%20Systems%20with%20an%20Extensible%20Fuzzing%20Framework.md)
 
 
 
