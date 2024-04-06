@@ -183,3 +183,21 @@ The experiments were conducted on a Linux server with 64 GB of memory and a 16-c
 
 In this article, we present Tardis, the first coverage-guided fuzzer that is able to discover bugs in Embedded OS. Tardis proposes a coverage collection mechanism that is able to instrument Embedded OSs and conduct an OS-agnostic coverage collection. The coverage is gathered on-the-fly and stored into a data buffer shared between the host fuzzer and the guest, enabling direct accessing without extra copy. Those inputs trigger new coverage can be detected with an efficient coverage analysis mechanism, thus evolving the whole fuzz campaign.
 The evaluation shows that the instrumentation brings averagely 27.05% and 30.55% memory consumption and execution overhead. While it gains an improvement of coverage by 51.32% on average, comparing with the black box fuzzing, which demonstrates the effectiveness of the proposed coverage guidance. Furthermore, we found 17 previously unknown bugs among four Embedded OSs, indicating the bug discovery capability of Tardi
+
+
+### 交流情况
+
+1. 变异方式：和healer方法一样
+
+2. 对于不同OS的fuzz流程是否有实际的不同：有的，具体见下一个问题
+
+3. 除了论文里提到的4个以外，fuzz一个新的OS需要做什么
+
+- 通过syslang做一些描述
+- executor，这样可以保证能在qemu上跑起来
+
+4. 自动抽取specification的工作在嵌入式OS上不能做， 因为做这样的抽取工作需要OS本身有一定功能支持。所以这几个rtos的spec都是手写的
+
+5. 差分测试
+
+6. Tardis代码可以share

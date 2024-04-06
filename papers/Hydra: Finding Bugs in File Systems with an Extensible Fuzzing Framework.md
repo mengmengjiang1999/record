@@ -41,10 +41,15 @@ regression tests并不是专注文件系统以上几类bug的方式。而且看�
 
 6. motivation
 
-总之，这个工作希望自己能够：(1) definition of a bug and corresponding core checking logic, and (2) the test case generator and the range of program states covered. 
+总之，这个工作希望自己能够：
+(1) definition of a bug and corresponding core checking logic, and
+(2) the test case generator and the range of program states covered. 
 测试用例both breadth and depth, especially to reach corner cases that cannot be covered by test cases contemplated by a human
 
-With such an explorer, we could (1) harvest extensive invariant checks in the codebase to detect file system–specific logic bugs; (2) improve and complement existing bug detectors (e.g., SibylFS); and more importantly, (3) focus on the core bug-hunting logic and totally decouple state exploration, as shown by the improvements of our in-house crash consistency checker, SymC3, over B3 (Section 5.6).
+With such an explorer, we could 
+(1) harvest extensive invariant checks in the codebase to detect file system–specific logic bugs;
+(2) improve and complement existing bug detectors (e.g., SibylFS); and more importantly, 
+(3) focus on the core bug-hunting logic and totally decouple state exploration, as shown by the improvements of our in-house crash consistency checker, SymC3, over B3 (Section 5.6).
 
 （2.4没看懂想说什么）
 
@@ -98,14 +103,43 @@ Hydra supports both inkernel file systems (e.g., ext4), and FUSE (Filesystem in 
 
 基于FUSE的executor，因为我们实际上可以把FUSE看成一个用户态进程，所以它同样可以以比较低的代价跑很多个test case，方便fuzz
 
-
 （注意：fuzz必须考虑性能问题，因为需要起很多个instance）
-
 
 
 ### 3.4 Checker Dispatcher
 
-checker despathcer是什么：
+checker despathcer是什么：（不想读了，让AI帮我看看吧）
+
+【AI-start】
+
+3.4节的“Checker Dispatcher”部分主要介绍了Hydra框架中的检查器调度器（Checker Dispatcher）的功能和作用。这一部分内容的核心要点如下：
+
+1. **检查器调度器的作用**：检查器调度器是Hydra框架的一个关键组件，它负责启动与目标错误类型相对应的检查器插件。这些检查器插件可以针对不同类型的文件系统错误进行检测。
+
+2. **统一接口**：尽管可以插入任何类型的漏洞检查器到Hydra中，但这些检查器可能有不同的接口。例如，SibylFS作为一个POSIX合规性检查器，是一个独立的二进制文件，它接受特定格式的测试用例，这与Hydra的输入变异器生成的测试用例不同。而KASan则是集成到内核中的，可以通过编译内核时配置一个标志来启用。Hydra的检查器调度器考虑到这些差异，并提供了一个统一的接口，抽象了测试用例如何被不同检查器消费，以及测试结果如何从检查器转移出来。
+
+3. **检查器的集成**：为了使新检查器的集成尽可能简单，Hydra提供了一个API，帮助开发者编写与Hydra兼容的检查器。这一部分讨论了如何将内部开发的检查器SymC3和其他检查器集成到Hydra中，以暴露各种类型的文件系统错误。
+
+4. **检查器的例子**：文中提到了几个具体的检查器例子，包括SymC3（一个内部开发的崩溃一致性检查器）、SibylFS（一个POSIX合规性检查器）和KASan（一个内存错误检查器）。
+
+总结来说，3.4节描述了Hydra框架中用于管理和调度不同检查器的组件，这些检查器用于发现和验证文件系统中的错误。通过提供一个统一的接口和API，Hydra能够灵活地集成多种检查器，从而发现各种类型的文件系统错误。从而发现各种类型的文件系统错误。
+
+
+
+3.5节的“Feedback Engine”部分主要讨论了Hydra框架中的反馈引擎，它的作用是衡量测试用例的“新颖性”并决定是否值得进一步变异。这一部分内容的核心要点如下：
+
+1. **反馈类型**：Hydra的反馈引擎考虑两种类型的反馈：分支覆盖率和检查器定义的信号。分支覆盖率是传统fuzzer中常用的一种反馈，它通过追踪测试用例执行过程中访问的代码分支来衡量新颖性。而检查器定义的信号则允许每个检查器注册自己的反馈格式，这可以是一个简单的布尔变量，表示测试用例是否触发了错误条件。
+
+2. **分支覆盖率**：Hydra使用控制流图（CFG）来表示文件系统，其中顶点是基本块，边是从一块到另一块的分支。执行测试用例时，Hydra跟踪访问的边集合，并根据触发的新分支数量和独特分支组合来衡量测试用例的新颖性。
+
+3. **检查器反馈**：作为一个通用的fuzzing框架，Hydra允许每个检查器注册自己的反馈格式。例如，一个旨在揭示规范违规的检查器可能会提供一个跟踪已断言规则数量的反馈格式，这将惩罚那些生成已断言部分的测试用例的输入变异器，并最终推动Hydra朝着尚未测试的规范部分发展。
+
+4. **反馈引擎的作用**：反馈引擎通过衡量测试用例的新颖性来指导输入变异器的搜索方向。如果一个测试用例报告了新的覆盖率或被检查器标记为有趣，那么它将被保存到种子池中，并期望沿着这个方向进行更多的探索；否则，测试用例将被丢弃。
+
+总结来说，3.5节描述了Hydra框架中反馈引擎的工作原理和作用，它通过分析测试用例的执行结果来提供反馈，这些反馈用于指导输入变异器的搜索策略，以更有效地发现文件系统中的错误。通过这种方式，Hydra能够专注于探索那些可能会触发检查器定义的错误状态的输入空间。
+
+
+【AI-end】
 
 
 
