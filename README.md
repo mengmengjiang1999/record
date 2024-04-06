@@ -19,6 +19,12 @@ content
 
 #### papers
 
+todo list:
+
+[todo list](./papers/todo-list.md)
+
+notes:
+
 [KernelGPT: Enhanced Kernel Fuzzing via Large Language Models](./papers/KernelGPT:%20Enhanced%20Kernel%20Fuzzing%20via%20Large%20Language%20Models.md)
 
 [Tardis: Coverage-Guided Embedded Operating System Fuzzing](./papers/Tardis:%20Coverage-Guided%20Embedded%20Operating%20System%20Fuzzing.md)
