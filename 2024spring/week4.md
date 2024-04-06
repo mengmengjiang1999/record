@@ -2,7 +2,7 @@
 
 20240318-20240324
 
-## tsffs相关尝试
+## 1. tsffs相关尝试
 
 simics启动。
 
@@ -41,3 +41,7 @@ LibAFL Frontend
 SIMICS Module：当一些（例如exception之类的）发生时，会catch这个事情并记录，并更新覆盖率信息。以及负责snapshot等（可以认为这个simulator也承担了一部分fuzz的功能）
 
 后面就是一些演示，如何配环境，然后写一个有bug的程序，然后写fuzz的配置文件，然后演示fuzz过程，总之看起来很厉害。可以作为入门的参考，不过这个流程文档上也都有写就是了（
+
+## 2. AFL环境配置
+
+[afl-tutorial-install-error](../coding/afl-tutorial-install-error.md)
