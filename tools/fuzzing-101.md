@@ -37,7 +37,7 @@ The Monitor component keeps track of all of the clients and offers methods on ho
 event manager评价同上。
 
 5. SCHEDULER
-The Scheduler component defines the strategy used to supply a Fuzzer’s request to the Corpus for a new testcase。选择生成新测试用例的策略。具体怎么实现应该是早就封装好了的
+The Scheduler component defines the strategy used to supply a Fuzzer’s request to the Corpus for a new testcase。选择生成新测试用例的策略。具体怎么实现在另一部分，scheduler只管选择策略。
 
 6. FUZZER
 对应的就是fuzzer。一个fuzzer需要负责生成新的测试用例，所以需要一个scheduler。fuzzer需要知道测试用例的覆盖率，即使是black-box的fuzzer也需要知道运行时间，所以需要这样一个component。
@@ -46,4 +46,4 @@ The Scheduler component defines the strategy used to supply a Fuzzer’s request
 这个比较重要，executor会起很多的用户进程。不过在实现中因为封装得比较好了，所以很好搞定。
 
 8. MUTATOR + STAGE
-这是干啥的？
+mutator是用来做变异的。stage是什么意思？
