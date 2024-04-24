@@ -49,7 +49,7 @@ kAFL，使用了Inter PT硬件特性
 - Kernel fuzzing
 
 First, different with userland fuzzing, crashes and hangs in kernel will bring down the whole system, and how to catch the crashes is an open problem. 
-Secondly, the system authority mechanism result in a relatively closed execution environment, con- sidering that fuzzers are generally run in ring 3 and how to interact with kernels is another challenge.
+Secondly, the system authority mechanism result in a relatively closed execution environment, considering that fuzzers are generally run in ring 3 and how to interact with kernels is another challenge.
 Besides, widely used kernels like Windows kernel and MacOS kernel are closed source, and is hard to instrument with a low performance overhead. 
 
 Generally, OS kernels are fuzzed by randomly calling kernel API functions with randomly generated parameter values. 
