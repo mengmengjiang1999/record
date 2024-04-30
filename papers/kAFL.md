@@ -1,5 +1,3 @@
-
-
 the fuzzing logic, the VM infrastructure (modified versions of QEMU and KVM denoted by QEMU-PT and KVMPT), and the user mode agent.
 
 
