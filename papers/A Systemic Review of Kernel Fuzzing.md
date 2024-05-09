@@ -23,4 +23,25 @@ syzkaller [20], TriforceAFL [21], KAFL and UnicoreFuzz [22]
 
 介绍syzkaller。
 
-TriforceAFL
+TriforceAFL  They won't need to recompile pieces of the kernel with AFL, or figure about how instrument core parts of the kernel. 具体而言就是把kernel和coverage guided的部分分开了。
+
+kAFL：如果一个进程去fuzzing自己的kernel，那么kernel crash会严重影响fuzzing过程，因为产生bug就会crash，crash就会需要reboot。reboot开销又很大。
+为了解决这个问题，使用了Virtual Machine Hypervisor and Intel's Processor Trace (PT)技术。
+
+Unicorefuzz模拟CPU的状态，来测试特定的内核代码部分。
+
+
+5.2 文件系统Fuzzer
+
+面临的问题：
+
+1. metadata只占1%左右，大多数mutation会变异数据，这并不会对文件系统状态产生实质的影响
+2. 文件操作的结果和文件系统当前的状态有关
+
+（这段就不具体看了）
+
+
+5.3 Data Race Vulnerability
+
+Krace [28] and Razzer [29] are typical representatives of these works.
+
