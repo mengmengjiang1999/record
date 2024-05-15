@@ -2,7 +2,6 @@
 # From Library Portability to Para-rehosting: Natively Executing Microcontroller Software on Commodity Hardware
 
 
-
 ## 先介绍对于固件进行fuzzing的四种不同的方式，以及进行对比。
 为了检验MCU固件的安全性，已经讨论了几种方法。我们将它们归类为四类。
 1) 设备上的分析：这种方法需要真实设备来进行测试。它得到了最真实可信的结果，但可扩展性较差，且缺乏可见性。在裸机上收集执行信息是困难的。
