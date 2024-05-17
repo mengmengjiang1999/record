@@ -244,3 +244,16 @@ E. 操作系统定制
 ## IX.CONCLUSIONS
 MCU固件的内部安全测试对物联网安全至关重要。然而，由于测试环境的不同，MCU固件无法使用x86上的复杂工具。
 将固件重新编译到本地x86主机可以直接解决这个问题。然而，特别定制的移植工作令人畏惧，容易出错，有时甚至是不可能的。因此，我们提出了pararehosting（部分重新托管）来简化这一过程。可移植的MCU能够模拟MCU的通用功能，而paraAPIs则方便了基于HAL（硬件抽象层）的外设函数替换，以处理外设。直接重新托管MCU操作系统可以解决现有解决方案面临的基本问题（性能、可扩展性和可见性）。我们已经实现了我们的想法，并重新托管了九个MCU操作系统。我们对Amazon FreeRTOS、ARM Mbed OS、Zephyr和LiteOS的库进行了安全测试。这些操作系统附带的大多数库可以通过现成的动态分析工具进行测试，包括AFL和ASAN。我们的实验表明，真实固件中的错误可以在重新托管的固件中复现，并且错误在重新托管的固件中更易于观察。通过使用模糊测试运行我们的工具，已经发现了以前未知的错误。
+
+
+## 后续的相关工作：
+
+SHiFT: Semi-hosted Fuzz Testing for Embedded Applications
+
+在硬件上做fuzzing，
+
+
+Fuzzware: Using Precise MMIO Modeling for Effective Firmware Fuzzing
+
+自动化MMIO建模
+
