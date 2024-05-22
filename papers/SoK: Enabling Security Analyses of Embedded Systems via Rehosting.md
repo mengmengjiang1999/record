@@ -9,6 +9,7 @@ rehosting相关的一些总结
 
 rehosting相关的研究方向
 
+我觉得sok实际上是一篇综述。
 
 
 7.1 Creating Virtual Execution Engines
