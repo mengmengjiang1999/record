@@ -25,7 +25,6 @@ https://www.semanticscholar.org/paper/Review-of-PLC-Security-Issues-in-Industria
 
 
 
-
 在第3.2节 "PLC Firmware Security" 中，文章讨论了与PLC固件安全相关的问题和保护方法。以下是该部分的主要内容：
 
 1. **PLC固件修改攻击**：
