@@ -154,6 +154,8 @@ make
 make install
 ```
 
+CC=/home/mmj/Tools/AFLplusplus/afl-clang-fast CXX=/home/mmj/Tools/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
+
 注意：因为在安装afl的时候并没有把afl-clang-fast之类的加入环境变量，所以这里指定编译器这些的时候需要手动设置成绝对路径。同理configure --prefix也需要设置成绝对路径
 
 这样做完之后，install文件夹就符合预期了。不过不知道为什么中途会报很多很多很多个warning。
@@ -215,4 +217,11 @@ libafl_bolts ="0.11.2"
 然后应该就可以了。
 
 另外还需要把代码里面原来用libafl::bolt等的地方换一下
+
+
+5. CC=/home/mmj/Tools/AFLplusplus/afl-clang-fast CXX=/home/mmj/Tools/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
+checking for gcc... /home/mmj/Tools/AFLplusplus/afl-clang-fast
+checking for C compiler default output file name... configure: error: C compiler cannot create executables
+See `config.log' for more details.
+
 

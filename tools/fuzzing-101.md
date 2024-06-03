@@ -47,3 +47,15 @@ The Scheduler component defines the strategy used to supply a Fuzzer’s request
 
 8. MUTATOR + STAGE
 mutator是用来做变异的。stage是什么意思？
+
+
+## exercise 1
+
+CC=/home/mmj/Project/AFLplusplus/afl-clang-fast CXX=/home/mmj/Project/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
+checking for gcc... /home/mmj/Project/AFLplusplus/afl-clang-fast
+checking for C compiler default output file name... configure: error: C compiler cannot create executables
+See `config.log' for more details.
+
+CC=/home/mmj/Tools/AFLplusplus/afl-clang-fast CXX=/home/mmj/Tools/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
+
+如果出现这个报错，说明AFLplusplus需要更新然后重新build一遍。或者也有可能是llvm-config的版本原因。总之AFLplusplus pull之后重新build就可以正常使用了
