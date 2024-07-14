@@ -1,16 +1,57 @@
+# exercise1
+
+## 问题及解决方式：
 
 
-error：
+1. 问题：
 W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://mirrors.tuna.tsinghua.edu.cn/gitlab-runner/ubuntu jammy InRelease: The following signatures were invalid: EXPKEYSIG 3F01618A51312F3F GitLab B.V. (package repository signing key) <packages@gitlab.com>
 W: Failed to fetch https://mirrors.tuna.tsinghua.edu.cn/gitlab-runner/ubuntu/dists/jammy/InRelease  The following signatures were invalid: EXPKEYSIG 3F01618A51312F3F GitLab B.V. (package repository signing key) <packages@gitlab.com>
 W: Some index files failed to download. They have been ignored, or old ones used instead.
 
-terminal：
+解决方式：
+
+在命令行里：
 sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
 
-问题：一个fuzzing包括哪几个部分？我觉得afl的好处就是它把fuzzing过程包装得非常好，非常方便用户来用。但是它的问题也是包装得实在太好了，导致我可能实际上不是真的知道它在做什么。
 
-#### exercise1
+2. 问题：
+
+error[E0658]: use of unstable library feature 'error_in_core'
+   --> /home/mmj/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/libafl_bolts-0.13.1/src/lib.rs:640:6
+    |
+640 | impl core::error::Error for Error {}
+    |      ^^^^^^^^^^^^^^^^^^
+    |
+    = note: see issue #103765 <https://github.com/rust-lang/rust/issues/103765> for more information
+    = help: add `#![feature(error_in_core)]` to the crate attributes to enable
+    = note: this compiler was built on 2024-04-09; consider upgrading it if it is out of date
+
+For more information about this error, try `rustc --explain E0658`.
+error: could not compile `libafl_bolts` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+
+解决方案：
+
+先更新一下rust工具链，然后把Cargo.toml文件更新一下，然后把libAFL的版本更新一下。不能使用default-feature=false这个选项，因为很多功能是在std feature下才能使用的。
+
+```
+[package]
+name = "exercise-one-solution"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+libafl = { version="0.13.1"}
+libafl_bolts = { version="0.13.1"}
+```
+
+3. 关于0.13.1版本的很多信息
+
+LibAFL在每次版本更新的时候，都会更新很多
+
+
+## 记录
 
 1. CORPUS + INPUT
 corpus的意思就是现在有的输入。需要根据已经有的输入来变异出其他输入。或者说是“种子池”之类的东西，因为随着fuzz过程，corpus也会变的。
@@ -49,7 +90,7 @@ The Scheduler component defines the strategy used to supply a Fuzzer’s request
 mutator是用来做变异的。stage是什么意思？
 
 
-## exercise 1
+编译运行中可能遇到的报错：
 
 CC=/home/mmj/Project/AFLplusplus/afl-clang-fast CXX=/home/mmj/Project/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
 checking for gcc... /home/mmj/Project/AFLplusplus/afl-clang-fast
@@ -59,3 +100,10 @@ See `config.log' for more details.
 CC=/home/mmj/Tools/AFLplusplus/afl-clang-fast CXX=/home/mmj/Tools/AFLplusplus/afl-clang-fast++ ./configure --prefix=/home/mmj/Project/fuzzing-101-solutions/exercise-1/xpdf/install
 
 如果出现这个报错，说明AFLplusplus需要更新然后重新build一遍。或者也有可能是llvm-config的版本原因。总之AFLplusplus pull之后重新build就可以正常使用了
+
+
+## exercise1.5
+
+这部分主要想要解决的问题是：提高exercise1的fuzzing效率。
+
+exercise1以及afl++中都使用了forkserver模式来做fuzz，由一个进程来启动另一个进程，然后在这个过程中对另一个进程的运行模式进行监控之类的。
