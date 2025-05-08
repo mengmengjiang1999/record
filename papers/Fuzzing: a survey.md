@@ -2,6 +2,16 @@
 
 （注意这篇survey是2018年的）
 
+@article{fuzzingsurvey,
+  title={Fuzzing: a survey},
+  author={Li, Jun and Zhao, Bodong and Zhang, Chao},
+  journal={Cybersecurity},
+  volume={1},
+  pages={1--13},
+  year={2018},
+  publisher={Springer}
+}
+
 关于fuzzing本身的改进：
 
 

@@ -1,5 +1,16 @@
 # Review of PLC Security Issues in Industrial Control System
 
+@article{plcsecurityreview,
+  title={Review of PLC security issues in industrial control system},
+  author={Pan, Xiaojun and Wang, Zhuoran and Sun, Yanbin},
+  journal={Journal of Cybersecurity},
+  volume={2},
+  number={2},
+  pages={69},
+  year={2020},
+  publisher={Tech Science Press}
+}
+
 https://www.semanticscholar.org/paper/Review-of-PLC-Security-Issues-in-Industrial-Control-Pan-Wang/2480a0d5bed1aac9474084e70457f4ac24293a7c?p2df
 
 

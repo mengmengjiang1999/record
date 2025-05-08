@@ -1,3 +1,17 @@
 # SoK: Security of Programmable Logic Controllers
 
 https://arxiv.org/abs/2403.00280
+
+
+@inproceedings {securityofprogrammablelogiccontrollers,
+author = {Efr{\'e}n L{\'o}pez-Morales and Ulysse Planta and Carlos Rubio-Medrano and Ali Abbasi and Alvaro A. Cardenas},
+title = {{SoK}: Security of Programmable Logic Controllers},
+booktitle = {33rd USENIX Security Symposium (USENIX Security 24)},
+year = {2024},
+isbn = {978-1-939133-44-1},
+address = {Philadelphia, PA},
+pages = {7103--7122},
+url = {https://www.usenix.org/conference/usenixsecurity24/presentation/lopez-morales},
+publisher = {USENIX Association},
+month = aug
+}

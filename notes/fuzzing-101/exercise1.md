@@ -48,7 +48,7 @@ libafl_bolts = { version="0.13.1"}
 
 3. 关于0.13.1版本的很多信息
 
-LibAFL在每次版本更新的时候，都会更新很多
+LibAFL在每次版本更新的时候，都会更新很多接口。详情见github仓库。
 
 
 ## 记录
@@ -102,8 +102,24 @@ CC=/home/mmj/Tools/AFLplusplus/afl-clang-fast CXX=/home/mmj/Tools/AFLplusplus/af
 如果出现这个报错，说明AFLplusplus需要更新然后重新build一遍。或者也有可能是llvm-config的版本原因。总之AFLplusplus pull之后重新build就可以正常使用了
 
 
+直接战略性放弃。
+和lyf一起debug也找不出问题。
+
+
+4. 问题：
+require_index_tracking!("MinimizerScheduler", O);
+
+提示这一点的时候，根据报错提示，需要track_indice，然后在edges_observer的地方增加调用这一方法就好了。虽然不知道为什么。
+
+let edges_observer = 
+        HitcountsMapObserver::new(unsafe { std_edges_map_observer("edges") }).track_indices();
+
+不知道为什么，改成这样就可以解决。
+
+
 ## exercise1.5
 
 这部分主要想要解决的问题是：提高exercise1的fuzzing效率。
 
 exercise1以及afl++中都使用了forkserver模式来做fuzz，由一个进程来启动另一个进程，然后在这个过程中对另一个进程的运行模式进行监控之类的。
+

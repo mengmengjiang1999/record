@@ -1,5 +1,17 @@
 # IEC 61850 Compatible OpenPLC for Cyber Attack Case Studies on Smart Substation Systems
 
+@ARTICLE{iec61850inopenplc,
+  author={Roomi, Muhammad M. and Ong, Wen Shei and Hussain, S. M. Suhail and Mashima, Daisuke},
+  journal={IEEE Access}, 
+  title={IEC 61850 Compatible OpenPLC for Cyber Attack Case Studies on Smart Substation Systems}, 
+  year={2022},
+  volume={10},
+  number={},
+  pages={9164-9173},
+  keywords={IEC Standards;Protocols;Standards;Smart grids;Cyberattack;Open source software;IEC;Programmable logic controller;cyber security;smart grid test bed;cyber range;IEC 61850},
+  doi={10.1109/ACCESS.2022.3144027}}
+
+
 
 https://ieeexplore.ieee.org/abstract/document/9684382/
 

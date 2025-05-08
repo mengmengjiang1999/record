@@ -1,5 +1,23 @@
 # SoK- Attacks on Industrial Control Logic and Formal Verification-Based Defenses
 
+
+@INPROCEEDINGS {plcformalverification,
+author = { Sun, Ruimin and Mera, Alejandro and Lu, Long and Choffnes, David },
+booktitle = { 2021 IEEE European Symposium on Security and Privacy (EuroS&P) },
+title = {{ SoK: Attacks on Industrial Control Logic and Formal Verification-Based Defenses }},
+year = {2021},
+volume = {},
+ISSN = {},
+pages = {385-402},
+abstract = { Programmable Logic Controllers (PLCs) play a critical role in the industrial control systems. Vulnerabilities in PLC programs might lead to attacks causing devastating consequences to the critical infrastructure, as shown in Stuxnet and similar attacks. In recent years, we have seen an exponential increase in vulnerabilities reported for PLC control logic. Looking back on past research, we found extensive studies explored control logic modification attacks, as well as formal verification-based security solutions. We performed systematization on these studies, and found attacks that can compromise a full chain of control and evade detection. However, the majority of the formal verification research investigated ad-hoc techniques targeting PLC programs. We discovered challenges in every aspect of formal verification, rising from (1) the ever-expanding attack surface from evolved system design, (2) the real-time constraint during the program execution, and (3) the barrier in security evaluation given proprietary and vendor-specific dependencies on different techniques. Based on the knowledge systematization, we provide a set of recommendations for future research directions, and we highlight the need of defending security issues besides safety issues. },
+keywords = {Industrial control;Programmable logic devices;Tools;Real-time systems;Safety;Critical infrastructure;Security},
+doi = {10.1109/EuroSP51992.2021.00034},
+url = {https://doi.ieeecomputersociety.org/10.1109/EuroSP51992.2021.00034},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month =sep}
+
+
 PLC的形式化验证综述，主要关注的是控制逻辑的形式化证明。
 
 这篇文章里面主要有贡献的点在于：

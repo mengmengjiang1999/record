@@ -1,6 +1,18 @@
 # OpenPLC: An Open Source Alternative to Automation
 https://ieeexplore.ieee.org/abstract/document/6970342/authors#authors
 
+@INPROCEEDINGS{openplc,
+  author={Alves, Thiago Rodrigues and Buratto, Mario and de Souza, Flavio Mauricio and Rodrigues, Thelma Virginia},
+  booktitle={IEEE Global Humanitarian Technology Conference (GHTC 2014)}, 
+  title={OpenPLC: An open source alternative to automation}, 
+  year={2014},
+  volume={},
+  number={},
+  pages={585-589},
+  keywords={Central Processing Unit;Automation;Protocols;Software;Relays;Floors;Light emitting diodes;PLC;OpenPLC;Automation;MODBUS;Open source},
+  doi={10.1109/GHTC.2014.6970342}}
+
+
 重点：
 
 1. 鲁棒性设计

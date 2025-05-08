@@ -1,5 +1,23 @@
 # Fuzzing proprietary protocols of programmable controllers to find vulnerabilities that affect physical control
 
+@article{plcprotocolfuzzer,
+author = {Liu, Puzhuo and Zheng, Yaowen and Song, Zhanwei and Fang, Dongliang and Lv, Shichao and Sun, Limin},
+title = {Fuzzing proprietary protocols of programmable controllers to find vulnerabilities that affect physical control},
+year = {2022},
+issue_date = {Jun 2022},
+publisher = {Elsevier North-Holland, Inc.},
+address = {USA},
+volume = {127},
+number = {C},
+issn = {1383-7621},
+url = {https://doi.org/10.1016/j.sysarc.2022.102483},
+doi = {10.1016/j.sysarc.2022.102483},
+journal = {J. Syst. Archit.},
+month = jun,
+numpages = {14},
+keywords = {Vulnerability analysis, Proprietary protocol fuzzing, Industrial control system}
+}
+
 https://www.sciencedirect.com/science/article/pii/S1383762122000625
 
 

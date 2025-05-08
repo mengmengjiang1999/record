@@ -4,6 +4,24 @@ https://dl.acm.org/doi/abs/10.1145/3444370.3444586?casa_token=DrUa44IfINoAAAAA:t
 
 https://dl.acm.org/doi/pdf/10.1145/3444370.3444586
 
+@inproceedings{kernelfuzzingreview,
+author = {Tan, Zhuobo and Lu, Hui},
+title = {A Systemic Review of Kernel Fuzzing},
+year = {2021},
+isbn = {9781450387828},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3444370.3444586},
+doi = {10.1145/3444370.3444586},
+abstract = {As an automatic vulnerability discovery method, fuzzing has received more and more attention from academia and industry. To address the weaknesses of existing fuzzers or to apply them into different scenarios, researchers have proposed various solutions to the problem. In order to apply fuzzing, a technique with excellent performance in vulnerability discovery, to kernel vulnerability discovery, security researchers have come up with a number of effective and efficient solutions. This paper aims to discuss the application of fuzzing in operating systems kernel. First, we introduce popular the concept of kernel vulnerability and the importance of kernel vulnerability discovery. Second, we discuss the development and classification of fuzzing technology. Finally, we discuss the recent developments in kernel fuzzing and their ideas for solving the problem in detail.},
+booktitle = {Proceedings of the 2020 International Conference on Cyberspace Innovation of Advanced Technologies},
+pages = {283–289},
+numpages = {7},
+keywords = {Vulnerability, Software Security, Kernel Fuzzing, Fuzzing},
+location = {Guangzhou, China},
+series = {CIAT 2020}
+}
+
 
 Knowledge-based Fuzzer
 

@@ -2,6 +2,18 @@
 
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8460287
 
+@INPROCEEDINGS{plcvulnerabilities,
+  author={Serhane, Abraham and Raad, Mohamad and Raad, Raad and Susilo, Willy},
+  booktitle={2018 International Conference on Computer and Applications (ICCA)}, 
+  title={PLC Code-Level Vulnerabilities}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={348-352},
+  keywords={Malware;Real-time systems;Standards;Encoding;Coils;Integrated circuits;DoS;Denial of Service;HMI: Human Machine Interface;ICS: Industrial Control Systems;JSR: Jump to Subroutine instruction PLC: programmable Logic Controller;OTE: Output Energize instruction;SBR: Subroutine instruction;SCADA: Supervisory Control and Data Acquisition},
+  doi={10.1109/COMAPP.2018.8460287}}
+
+
 
 II. PLC OVERVIEW 这一段介绍了可编程逻辑控制器（PLC）的概况，具体内容包括：
 

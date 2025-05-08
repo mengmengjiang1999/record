@@ -1,5 +1,26 @@
 # From Library Portability to Para-rehosting: Natively Executing Microcontroller Software on Commodity Hardware
 
+@inproceedings{pararehosting,
+author = {Li, Wenqiang and Guan, Le and Lin, Jingqiang and Shi, Jiameng and Li, Fengjun},
+year = {2021},
+month = {01},
+pages = {},
+title = {From Library Portability to Para-rehosting: Natively Executing Microcontroller Software on Commodity Hardware},
+doi = {10.14722/ndss.2021.24308}
+}
+
+@inproceedings{pararehosting, 
+series={NDSS 2021},
+   title={From Library Portability to Para-rehosting: Natively Executing Microcontroller Software on Commodity Hardware},
+   url={http://dx.doi.org/10.14722/ndss.2021.24308},
+   DOI={10.14722/ndss.2021.24308},
+   booktitle={Proceedings 2021 Network and Distributed System Security Symposium},
+   publisher={Internet Society},
+   author={Li, Wenqiang and Guan, Le and Lin, Jingqiang and Shi, Jiameng and Li, Fengjun},
+   year={2021},
+   collection={NDSS 2021} }
+
+
 论文：From Library Portability to Para-rehosting: Natively Executing Microcontroller Software on Commodity Hardware
 
 rehosting：将MCU软件重新编译，使得在用户态可以执行，根据论文描述，好处有至少3个：

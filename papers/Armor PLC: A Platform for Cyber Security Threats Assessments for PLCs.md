@@ -2,6 +2,21 @@
 
 https://www.sciencedirect.com/science/article/pii/S2351978920304017
 
+@article{armorplc,
+title = {Armor PLC: A Platform for Cyber Security Threats Assessments for PLCs},
+journal = {Procedia Manufacturing},
+volume = {39},
+pages = {270-278},
+year = {2019},
+note = {25th International Conference on Production Research Manufacturing Innovation: Cyber Physical Manufacturing August 9-14, 2019 | Chicago, Illinois (USA)},
+issn = {2351-9789},
+doi = {https://doi.org/10.1016/j.promfg.2020.01.334},
+url = {https://www.sciencedirect.com/science/article/pii/S2351978920304017},
+author = {Wenhui Zhang and Yizheng Jiao and Dazhong Wu and Srivatsa Srinivasa and Asmit De and Swaroop Ghosh and Peng Liu},
+keywords = {Programmable Logic Controllers, Stateless Host Based Intrusion Detection, Record, Replay, Internet of Things, Byzantine Scheme, Overlayed Network},
+abstract = {Programmable Logic Controllers (PLCs) are essential parts in industrial manufacturing plants. With the emerging Industry 4.0 environment, legacy PLCs are now connected to the Internet to be better automated. However, these PLCs are especially vulnerable when connected to a network, since there is limited inherent security mechanisms built in. In this paper, we discuss various vulnerabilities in these PLCs. We describe threat models, detection and protection techniques. We consider vulnerabilities as compromised PLC logic, which is introduced by over-the-network malicious data injection. We leverage Host-Based Intrusion Detection System (HIDS) techniques, such as output value comparison using majority voting, timing comparison and using known I/O values for detecting such attacks for our Network-Based Intrusion Detection System for PLCs. We mimic functionalities of PLCs, through virtualization of PLCs’ ladder logic on OpenPLC [7]. We use a record & replay technique for attack mitigation and system restoration. The record & replay system captures pin values of a Pulse Width Modulated (PWM) signal with sensitivity of 50 microseconds. We implement the attacks and our proposed security solution on the control flow logic of a sample industrial gas pipeline PLC network. We achieve a false positive rate of 1% along with a latency of 25 milliseconds in our abnormal detection with setting of 4 virtual PLCs (using OpenPLC [7]), and generated receiver operating characteristic results on different attack rates and ST file logic settings.}
+}
+
 主要是针对网络攻击的攻击和防御。
 
 

@@ -1,5 +1,25 @@
 # Fuzzing of Embedded Systems: A Survey
 
+@article{embeddedsystemsurvey,
+author = {Yun, Joobeom and Rustamov, Fayozbek and Kim, Juhwan and Shin, Youngjoo},
+title = {Fuzzing of Embedded Systems: A Survey},
+year = {2022},
+issue_date = {July 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {55},
+number = {7},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/3538644},
+doi = {10.1145/3538644},
+abstract = {Security attacks abuse software vulnerabilities of IoT devices; hence, detecting and eliminating these vulnerabilities immediately are crucial. Fuzzing is an efficient method to identify vulnerabilities automatically, and many publications have been released to date. However, fuzzing for embedded systems has not been studied extensively owing to various obstacles, such as multi-architecture support, crash detection difficulties, and limited resources. Thus, the article introduces fuzzing techniques for embedded systems and the fuzzing differences for desktop and embedded systems. Further, we collect state-of-the-art technologies, discuss their advantages and disadvantages, and classify embedded system fuzzing tools. Finally, future directions for fuzzing research of embedded systems are predicted and discussed.},
+journal = {ACM Comput. Surv.},
+month = dec,
+articleno = {137},
+numpages = {33},
+keywords = {Firmware fuzzing, IoT devices, firmware analysis, fuzzing, embedded systems, software testing, symbolic execution, concolic execution}
+}
+
 ## RQ1: What are the differences between traditional fuzzing and ESF?
 
 问题：嵌入式系统和固件是什么？

@@ -1,5 +1,23 @@
 # LibAFL: A Framework to Build Modular and Reusable Fuzzers
 
+@inproceedings{libafl,
+author = {Fioraldi, Andrea and Maier, Dominik Christian and Zhang, Dongjia and Balzarotti, Davide},
+title = {LibAFL: A Framework to Build Modular and Reusable Fuzzers},
+year = {2022},
+isbn = {9781450394505},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3548606.3560602},
+doi = {10.1145/3548606.3560602},
+abstract = {The release of AFL marked an important milestone in the area of software security testing, revitalizing fuzzing as a major research topic and spurring a large number of research studies that attempted to improve and evaluate the different aspects of the fuzzing pipeline.Many of these studies implemented their techniques by forking the AFL codebase. While this choice might seem appropriate at first, combining multiple forks into a single fuzzer requires a high engineering overhead, which hinders progress in the area and prevents fair and objective evaluations of different techniques. The highly fragmented landscape of the fuzzing ecosystem also prevents researchers from combining orthogonal techniques and makes it difficult for end users to adopt new prototype solutions.To tackle this problem, in this paper we propose LibAFL, a framework to build modular and reusable fuzzers. We discuss the different components generally used in fuzzing and map them to an extensible framework. LibAFL allows researchers and engineers to extend the core fuzzer pipeline and share their new components for further evaluations. As part of LibAFL, we integrated techniques from more than 20 previous works and conduct extensive experiments to show the benefit of our framework to combine and evaluate different approaches. We hope this can help to shed light on current advancements in fuzzing and provide a solid base for comparative and extensible research in the future.},
+booktitle = {Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security},
+pages = {1051–1065},
+numpages = {15},
+keywords = {fuzzing, fuzz testing, framework},
+location = {Los Angeles, CA, USA},
+series = {CCS '22}
+}
+
 问题：This is due to the fact that all existing fuzzing frameworks are not designed to be extensible。并且作者认为，这并不仅仅是一个工程问题，而且This problem is not only an engineering issue, but it also highlights the lack of a standard definition of the entities that define a modern fuzzer
 
 目前关于fuzzing的研究已经很多，但是目前的研究存在以下几个问题：

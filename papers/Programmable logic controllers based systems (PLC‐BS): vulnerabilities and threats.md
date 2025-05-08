@@ -2,6 +2,21 @@
 
 https://link.springer.com/article/10.1007/s42452-019-0860-2
 
+@article{plcvulneabilitiesthreats,
+  author    = {Abraham Serhane and Mohamad Raad and Raad Raad and Willy Susilo},
+  title     = {Programmable logic controllers based systems (PLC-BS): vulnerabilities and threats},
+  journal   = {SN Applied Sciences},
+  year      = {2019},
+  volume    = {1},
+  number    = {8},
+  pages     = {924},
+  issn      = {2523-3971},
+  doi       = {10.1007/s42452-019-0860-2},
+  url       = {https://doi.org/10.1007/s42452-019-0860-2},
+  abstract  = {This paper provides a review of the state-of-the-art of major Programmable Logic Controller (PLC) based devices along with their security concerns. It discusses, mainly, the threats and vulnerabilities of PLCs and associated field devices—including local industrial networks. As PLC-BS are becoming more integrated and interconnected with other complex systems and open source solutions, they are becoming more vulnerable to critical threats and exploitations. Little attention and progress have been made in securing such devices if compared to that of securing overall Industrial Control Systems. This review shows the fact that major PLC based devices have several vulnerabilities and are insecure by design—firmware, code, or hardware. This paper suggests policies, recommendations, and countermeasures to secure PLC-BS. Securing PLC-BS is vital and crucial since a compromised PLC-BS would lead to significant financial loss and safety risks that could endanger human lives or the environment.},
+  date      = {2019-07-26}
+}
+
 
 Abstract
 This paper provides a review of the state-of-the-art of major Programmable Logic Controller (PLC) based devices along with their security concerns. It discusses, mainly, the threats and vulnerabilities of PLCs and associated field devices— including local industrial networks. As PLC-BS are becoming more integrated and interconnected with other complex systems and open source solutions, they are becoming more vulnerable to critical threats and exploitations. Little atten- tion and progress have been made in securing such devices if compared to that of securing overall Industrial Con- trol Systems. This review shows the fact that major PLC based devices have several vulnerabilities and are insecure by design—firmware, code, or hardware. This paper suggests policies, recommendations, and countermeasures to secure PLC-BS. Securing PLC-BS is vital and crucial since a compromised PLC-BS would lead to significant financial loss and safety risks that could endanger human lives or the environment.

@@ -4,6 +4,25 @@ https://www.mdpi.com/2076-3417/11/21/9785
 
 https://www.secrss.com/articles/13430
 
+
+@Article{securitychallengeindustry4,
+AUTHOR = {Hajda, Janusz and Jakuszewski, Ryszard and Ogonowski, Szymon},
+TITLE = {Security Challenges in Industry 4.0 PLC Systems},
+JOURNAL = {Applied Sciences},
+VOLUME = {11},
+YEAR = {2021},
+NUMBER = {21},
+ARTICLE-NUMBER = {9785},
+URL = {https://www.mdpi.com/2076-3417/11/21/9785},
+ISSN = {2076-3417},
+ABSTRACT = {The concept of the fourth industrial revolution assumes the integration of people and digitally controlled machines with the Internet and information technologies. At the end of 2015, more than 20 billion machines and devices were connected to the Internet, with an expected growth to half a trillion by 2030. The most important raw material for this digital revolution is data, which when properly stored, analyzed and secured, constitute the basis for the development of any business. In times of rapid industrial development, automation of production processes and systems integration via networks, the effective protection of the cyber-physical systems of a plant is particularly important. To minimize the risks associated with Internet access, one must define all the possible threats and determine their sources in the plant and block or minimize the possibility of sabotage or data loss. This article analyzes the security measures used in industrial systems. In particular, risk management and the study of the risk sources in terms of human, hardware and software aspects in networked PLC and SCADA systems are discussed. Methods of improving the architecture of industrial networks and their management are proposed in order to increase the level of security. Additionally, the safety of the communication protocols with PLCs in industrial control systems is discussed.},
+DOI = {10.3390/app11219785}
+}
+
+
+
+
+
 PLC控制器
 
 通信协议
